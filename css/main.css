@@ -1,0 +1,58 @@
+/*setting up color variables*/
+/*The :root CSS pseudo-class matches the root element of a tree representing the document.*/
+/*A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, :hover can be used to change a button's color when the user's pointer hovers over it.*/
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes*/
+:root {
+    --clr-primary: rgb(54, 112, 199);
+    --clr-light: #f4f4f4;
+    --clr-dark: #333;
+    --clr-warning: rgb(99, 36, 36);
+}
+
+/* The * selector selects all elements.*/
+/* The ::before selector inserts something before the content of each selected element(s).*/
+/* The ::after selector inserts something after the content of each selected element(s).*/
+/* inherit means that the element inherits this property from its parent element.*/
+/* When you set the width/height of an element, the element often appears bigger than you have set 
+(because the element's border and padding are added to the element's specified width/height). 
+The box-sizing property allows us to include the padding and border in an element's total width and height.
+If you set box-sizing: border-box; on an element, padding and border are included in the width and height*/
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+/*rem is relative to the font size of the root element*/
+body {
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+
+    display: grid;
+    grid: 
+        "header header header header" auto
+        "...... lists  active ......" auto /
+        1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+.title {
+    grid-area: header;
+    text-align: center;
+    font-size: calc(7vw + 2rem);
+    font-weight: 900;
+    color: rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+}
+
+.all-tasks {
+    grid-area: lists;
+}
+
+.todo-list {
+    grid-area: active;
+}
